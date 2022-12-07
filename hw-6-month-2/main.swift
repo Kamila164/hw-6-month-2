@@ -45,6 +45,28 @@ var electronics5 = Electronics(name: "Телевизор", price: 19000, srok: "
 
 var array: [Product] = [food1, food2, food3, food4, food5, drink1, drink2, drink3, drink4, drink5, soapwasher1, soapwasher2, soapwasher3, soapwasher4, soapwadher5, electronics1, electronics2, electronics3, electronics4, electronics5]
 
+var stop = false
+var productArray: [String] = []
+
+print("Мы доставляем в Казахстан, Кыргызстан, Узбекистан.\nВведите название товара и количество, а так же страну, куда хотите отправить")
+print("Введите ФИО:")
+var userName = readLine()!
+
+while stop == false{
+    print("Введите название товара:")
+    let productName = readLine()!
+    if productName.count == 0{
+        stop = true
+    }else{
+        productArray.append(productName)
+    }
+}
+
+print("Введите кол-во:")
+var amount = readLine()!
+print("Введите страну:")
+var country = readLine()!
+
 func deliveryService(productName: [String], amount: Int, country: String){
     let delivery = 500
     let date = "6.12.2022"
@@ -76,27 +98,5 @@ func deliveryService(productName: [String], amount: Int, country: String){
     }
     
 }
-
-var stop = false
-var productArray: [String] = []
-
-print("Мы доставляем в Казахстан, Кыргызстан, Узбекистан.\nВведите название товара и количество, а так же страну, куда хотите отправить")
-print("Введите ФИО:")
-var userName = readLine()!
-
-while stop == false{
-    print("Введите название товара:")
-    let productName = readLine()!
-    if productName.count == 0{
-        stop = true
-    }else{
-        productArray.append(productName)
-    }
-}
-
-print("Введите кол-во:")
-var amount = readLine()!
-print("Введите страну:")
-var country = readLine()!
 
 deliveryService(productName: productArray, amount: Int(amount)!, country: country)
